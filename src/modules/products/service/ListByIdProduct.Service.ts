@@ -1,4 +1,4 @@
-import AppError from '@shared/errors/AppError.Middleware';
+import AppError from '@shared/middlewares/errors/AppError.Middleware';
 import { getCustomRepository } from 'typeorm';
 import Product from '../typeorm/entities/Product';
 import { ProductsRepository } from '../typeorm/repositories/ProductsRepository';

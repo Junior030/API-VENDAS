@@ -1,4 +1,4 @@
-import AppError from '@shared/errors/AppError.Middleware';
+import AppError from '@shared/middlewares/errors/AppError.Middleware';
 import { getCustomRepository } from 'typeorm';
 import Product from '../typeorm/entities/Product';
 import { ProductsRepository } from '../typeorm/repositories/ProductsRepository';
@@ -11,10 +11,6 @@ interface IRequest {
 
 export default class CreateProductService {
   public async execute({ name, price, quantity }: IRequest): Promise<Product> {
-    if (!name || !price || !quantity) {
-      throw new AppError('Fill in all fields');
-    }
-
     const productsRepository = getCustomRepository(ProductsRepository);
     const productExists = await productsRepository.findByName(name);
 
