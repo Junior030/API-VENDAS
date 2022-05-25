@@ -1,4 +1,4 @@
-import AppError from '@shared/errors/AppError';
+import AppError from '@shared/errors/AppError.Middleware';
 import { getCustomRepository } from 'typeorm';
 import Product from '../typeorm/entities/Product';
 import { ProductsRepository } from '../typeorm/repositories/ProductsRepository';
@@ -10,7 +10,7 @@ interface IRequest {
   quantity: number;
 }
 
-export class CreateProductService {
+export default class UpdateProductService {
   public async execute({
     id,
     name,

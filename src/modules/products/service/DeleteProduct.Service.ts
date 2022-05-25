@@ -1,4 +1,4 @@
-import AppError from '@shared/errors/AppError';
+import AppError from '@shared/errors/AppError.Middleware';
 import { getCustomRepository } from 'typeorm';
 import { ProductsRepository } from '../typeorm/repositories/ProductsRepository';
 
@@ -6,7 +6,7 @@ interface IRequest {
   id: string;
 }
 
-export class DeleteProductService {
+export default class DeleteProductService {
   public async execute({ id }: IRequest): Promise<void> {
     const productsRepository = getCustomRepository(ProductsRepository);
 

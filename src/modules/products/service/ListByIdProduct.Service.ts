@@ -1,4 +1,4 @@
-import AppError from '@shared/errors/AppError';
+import AppError from '@shared/errors/AppError.Middleware';
 import { getCustomRepository } from 'typeorm';
 import Product from '../typeorm/entities/Product';
 import { ProductsRepository } from '../typeorm/repositories/ProductsRepository';
@@ -7,7 +7,7 @@ interface IRequest {
   id: string;
 }
 
-export class ListByIdProductService {
+export default class ListByIdProductService {
   public async execute({ id }: IRequest): Promise<Product | undefined> {
     const productsRepository = getCustomRepository(ProductsRepository);
 
